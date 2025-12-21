@@ -39,5 +39,5 @@ Métricas
 ## Arquitectura general
 <ul> <li>Backend desacoplado con API REST</li> <li>Frontend como SPA independiente</li> <li>Separación de responsabilidades clara y escalable</li> <li>Validaciones y control de permisos gestionados en backend</li> </ul>
 
-##Roadmap
+## Roadmap
 <ul> <li>Autenticación y gestión de usuarios</li> <li>Proyectos y roles</li> <li>Boards y tareas</li> <li>Dependencias entre tareas</li> <li>Métricas y dashboards</li> <li>Tests unitarios y de integración</li> <li>Despliegue en producción con Docker</li> </ul>
