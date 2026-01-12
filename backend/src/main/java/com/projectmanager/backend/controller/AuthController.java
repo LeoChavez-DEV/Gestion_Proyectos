@@ -1,5 +1,6 @@
 package com.projectmanager.backend.controller;
 
+import com.projectmanager.backend.dto.AuthResponse;
 import com.projectmanager.backend.dto.LoginRequest;
 import com.projectmanager.backend.dto.RegisterRequest;
 import com.projectmanager.backend.service.AuthService;
@@ -26,10 +27,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest request){
-        authService.login(request);
-        return ResponseEntity.ok().build();
-
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authService.login(request));
     }
+
 
 }
