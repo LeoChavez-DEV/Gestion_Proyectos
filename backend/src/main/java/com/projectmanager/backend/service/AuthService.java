@@ -1,5 +1,6 @@
 package com.projectmanager.backend.service;
 
+import com.projectmanager.backend.dto.AuthResponse;
 import com.projectmanager.backend.dto.LoginRequest;
 import com.projectmanager.backend.dto.RegisterRequest;
 import com.projectmanager.backend.model.Role;
@@ -43,14 +44,21 @@ public class AuthService {
 
     }
 
-    public void login(LoginRequest request) {
+    public AuthResponse login(LoginRequest request) {
 
         User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new RuntimeException("Invalid credentials");
         }
 
+        // 🔴 Token temporal (luego JWT real)
+        String fakeToken = "DEV-TOKEN-" + user.getEmail();
+
+        return new AuthResponse(fakeToken);
     }
+
+
+
 }
