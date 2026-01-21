@@ -1,0 +1,21 @@
+.main-content {
+    padding: 24px;
+}
+.header{
+    position: sticky;
+    top: 0;
+    background-color: dodgerblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* align-items: stretch;  alargar el nav */
+    border: 1px solid blue ;
+    padding: 5px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 12px;
+    border: 1px solid red ;
+}

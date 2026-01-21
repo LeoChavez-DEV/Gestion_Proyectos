@@ -1,0 +1,14 @@
+<header class="header">
+  <div class="header-left">
+    <h1>Gestión de Proyectos</h1>
+  </div>
+
+  <nav class="header-right">
+    <a routerLink="/dashboard">Dashboard</a>
+    <button (click)="logout()">Logout</button>
+  </nav>
+</header>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
