@@ -19,7 +19,6 @@ Otros
 <ul> <li>Swagger/OpenAPI para documentación</li> <li>Docker para despliegue</li> </ul>
 
 ### Fronted
-React
 Angular
 <ul> <li>SPA moderna y estructurada</li> <li>Componentes reutilizables</li> <li>Modules y Services para arquitectura limpia</li> </ul>
 TypeScript
