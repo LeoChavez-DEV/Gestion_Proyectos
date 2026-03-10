@@ -1,23 +1,33 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AuthStateService } from '../auth/auth-state';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterModule, CommonModule],
   templateUrl: './layout.html',
   styleUrl: './layout.css',
 })
+
+
 export class LayoutComponent {
 
   constructor(
-    private authState: AuthStateService,
+    public authState: AuthStateService,
     private router: Router
   ) {}
+
+        get currentUrl() {
+      return this.router.url;
+    }
 
   logout() {
     this.authState.clear();
     this.router.navigate(['/login']);
   }
+
+
+
 }
