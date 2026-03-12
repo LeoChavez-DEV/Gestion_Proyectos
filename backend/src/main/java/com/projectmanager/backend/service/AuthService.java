@@ -9,8 +9,8 @@ import com.projectmanager.backend.repository.RoleRepository;
 import com.projectmanager.backend.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.Set;
 
+import java.util.Set;
 
 @Service
 public class AuthService {
@@ -18,19 +18,24 @@ public class AuthService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
 
     public AuthService(UserRepository userRepository,
                        RoleRepository roleRepository,
-                       PasswordEncoder passwordEncoder) {
+                       PasswordEncoder passwordEncoder,
+                       JwtService jwtService) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
     }
 
     public void register(RegisterRequest request) {
+
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("Email ya esta en uso");
         }
+
         Role role = roleRepository.findByName("ROLE_USER")
                 .orElseThrow(() -> new RuntimeException("Rol Default no encontrado"));
 
@@ -41,7 +46,6 @@ public class AuthService {
         user.setEnabled(true);
 
         userRepository.save(user);
-
     }
 
     public AuthResponse login(LoginRequest request) {
@@ -53,12 +57,8 @@ public class AuthService {
             throw new RuntimeException("Invalid credentials");
         }
 
-        // 🔴 Token temporal (luego JWT real)
-        String fakeToken = "DEV-TOKEN-" + user.getEmail();
+        String token = jwtService.generateToken(user);
 
-        return new AuthResponse(fakeToken);
+        return new AuthResponse(token);
     }
-
-
-
 }
