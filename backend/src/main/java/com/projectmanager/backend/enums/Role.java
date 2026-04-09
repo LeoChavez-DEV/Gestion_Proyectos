@@ -1,4 +1,4 @@
-package com.projectmanager.backend.model;
+package com.projectmanager.backend.enums;
 
 import jakarta.persistence.*;
 

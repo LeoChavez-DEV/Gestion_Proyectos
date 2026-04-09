@@ -1,2 +1,32 @@
-<p>dashboard works!</p>
-<button (click)="logout()">Logout</button>
+<div class="dashboard">
+
+  <h1>¿Qué quieres hacer hoy?</h1>
+
+  <div class="actions">
+
+    <div class="card">
+      <h3>Crear nuevo proyecto</h3>
+
+      <input type="text" placeholder="Nombre del proyecto" [(ngModel)]="newProject.name" />
+
+      <input type="text" placeholder="Descripción" [(ngModel)]="newProject.description" />
+
+      <button (click)="createProject()">Crear</button>
+    </div>
+
+    <div class="card">
+      <h3>Continuar proyecto</h3>
+
+      <ul>
+        @for (project of projects; track project.id) {
+        <li (click)="goToProject(project.id)">
+          <strong>{{ project.name }}</strong>
+          <span>{{ project.description }}</span>
+        </li>
+        }
+      </ul>
+    </div>
+
+  </div>
+
+</div>

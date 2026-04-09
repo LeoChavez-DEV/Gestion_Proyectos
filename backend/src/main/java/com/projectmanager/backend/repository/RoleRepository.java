@@ -1,5 +1,5 @@
 package com.projectmanager.backend.repository;
-import com.projectmanager.backend.model.Role;
+import com.projectmanager.backend.enums.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

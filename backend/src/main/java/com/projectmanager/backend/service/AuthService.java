@@ -3,7 +3,7 @@ package com.projectmanager.backend.service;
 import com.projectmanager.backend.dto.AuthResponse;
 import com.projectmanager.backend.dto.LoginRequest;
 import com.projectmanager.backend.dto.RegisterRequest;
-import com.projectmanager.backend.model.Role;
+import com.projectmanager.backend.enums.Role;
 import com.projectmanager.backend.model.User;
 import com.projectmanager.backend.repository.RoleRepository;
 import com.projectmanager.backend.repository.UserRepository;

@@ -1,6 +1,6 @@
 package com.projectmanager.backend.config;
 
-import com.projectmanager.backend.model.Role;
+import com.projectmanager.backend.enums.Role;
 import com.projectmanager.backend.repository.RoleRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

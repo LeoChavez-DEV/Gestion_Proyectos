@@ -1,5 +1,6 @@
 package com.projectmanager.backend.model;
 
+import com.projectmanager.backend.enums.Role;
 import jakarta.persistence.*;
 import java.util.Set;
 

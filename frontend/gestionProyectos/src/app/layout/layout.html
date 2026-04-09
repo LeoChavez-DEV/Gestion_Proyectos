@@ -1,27 +1,39 @@
 <header class="header">
-  <div class="header-left">
-    <h1>Gestión de Proyectos</h1>
+
+  <div class="container">
+
+    <div class="header-left">
+      <h1>Gestión de Proyectos</h1>
+    </div>
+
+    <nav class="header-right">
+      @if (authState.isLoggedIn()) {
+
+        <a routerLink="/dashboard">Dashboard</a>
+        <button (click)="logout()">Logout</button>
+
+      } @else {
+
+        @if (currentUrl === '/login') {
+          <a routerLink="/register">Registrarse</a>
+        }
+
+        @if (currentUrl === '/register') {
+          <a routerLink="/login">Login</a>
+        }
+
+      }
+    </nav>
+
   </div>
 
-  <nav class="header-right">
-    @if (authState.isLoggedIn()) {
-
-      <a routerLink="/dashboard">Dashboard</a>
-      <button (click)="logout()">Logout</button>
-
-    } @else {
-
-    @if (currentUrl === '/login') {
-            <a routerLink="/register">Registrarse</a>
-          }
-
-          @if (currentUrl === '/register') {
-            <a routerLink="/login">Login</a>
-          }
-    }
-  </nav>
 </header>
 
+
 <main class="main-content">
-  <router-outlet></router-outlet>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
 </main>
